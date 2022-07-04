@@ -1,4 +1,5 @@
 const { rules } = require('eslint-config-airbnb-base/rules/style');
+
 const noRestrictedSyntax = rules['no-restricted-syntax'];
 
 /** @type {import('eslint').ESLint.ConfigData} */
@@ -11,7 +12,7 @@ module.exports = {
       ...noRestrictedSyntax
         .filter((r) => {
           if (typeof r !== 'object') { return false; }
-          return r.selector !== 'ForOfStatement'
+          return r.selector !== 'ForOfStatement';
         }),
     ],
   },
