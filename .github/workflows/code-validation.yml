@@ -56,4 +56,3 @@ jobs:
         run: npm install --no-save https://gitpkg.now.sh/thnetii/gh-actions/src/eslint-formatter-gh-actions?main
       - name: eslint .
         run: npm exec -- eslint -f @thnetii/eslint-formatter-gh-actions .
-
