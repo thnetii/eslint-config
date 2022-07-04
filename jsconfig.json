@@ -1,4 +1,6 @@
 {
   "extends": "@tsconfig/node16-strictest/tsconfig.json",
-  "compilerOptions": {}
+  "compilerOptions": {
+    "resolveJsonModule": true
+  }
 }
