@@ -1,0 +1,5 @@
+root: true
+extends:
+  - '@thnetii/node-base'
+parserOptions:
+  ecmaVersion: 2021

@@ -2,6 +2,9 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "eslint.enable": true,
   "prettier.enable": true,
   "typescript.tsdk": "node_modules/typescript/lib"
