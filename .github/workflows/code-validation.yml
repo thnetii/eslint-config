@@ -1,0 +1,56 @@
+name: Code Validation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch: {}
+
+jobs:
+  npm:
+    name: Npm Packages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout ${{ github.repository }}@${{ github.ref }}
+        uses: actions/checkout@v3
+      - name: Setup Github Actions for Node.js
+        uses: actions/setup-node@v3
+      - name: Add GitHub Actions output matcher for npm
+        uses: thnetii/gh-actions/src/add-matcher-npm@main
+      - run: npm clean-install --workspaces --include-workspace-root
+        name: npm clean-install
+
+  tsc:
+    name: TypeScript type check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout ${{ github.repository }}@${{ github.ref }}
+        uses: actions/checkout@v3
+      - name: Setup Github Actions for Node.js
+        uses: actions/setup-node@v3
+      - run: npm clean-install --workspaces --include-workspace-root
+        name: npm clean-install
+      - name: tsc --noEmit -p ./jsconfig.json
+        uses: thnetii/gh-actions/src/gh-actions-tsc@main
+        with:
+          arguments: |
+            --noEmit
+            -p
+            ./jsconfig.json
+
+  eslint:
+    name: ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout ${{ github.repository }}@${{ github.ref }}
+        uses: actions/checkout@v3
+      - name: Setup Github Actions for Node.js
+        uses: actions/setup-node@v3
+      - run: npm clean-install --workspaces --include-workspace-root
+        name: npm clean-install
+      - name: eslint .
+        run: npm exec -- eslint .
+
