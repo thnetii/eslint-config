@@ -25,7 +25,8 @@
   ],
   "type": "commonjs",
   "dependencies": {
-    "eslint-config-airbnb-base": "^15.0.0"
+    "eslint-config-airbnb-base": "^15.0.0",
+    "semver": "^7.0.0"
   },
   "peerDependencies": {
     "eslint": "^7.32.0 || ^8.2.0",
@@ -34,6 +35,6 @@
   },
   "devDependencies": {
     "@types/eslint": "^8.2.0",
-    "@types/semver": "^6.2.0"
+    "@types/semver": "^7.0.0"
   }
 }
