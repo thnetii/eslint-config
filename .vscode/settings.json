@@ -1,0 +1,7 @@
+{
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "eslint.enable": true,
+  "prettier.enable": true
+}
