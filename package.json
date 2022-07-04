@@ -25,5 +25,9 @@
   ],
   "workspaces": [
     "src/*"
-  ]
+  ],
+  "devDependencies": {
+    "@tsconfig/node16-strictest": "^1.0.0",
+    "typescript": "^4.7"
+  }
 }
