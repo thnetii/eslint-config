@@ -4,8 +4,8 @@ const noRestrictedSyntax = rules['no-restricted-syntax'];
 
 /** @type {import('eslint').ESLint.ConfigData} */
 module.exports = {
-  plugins: ['node'],
-  extends: ['eslint:recommended', 'plugin:node/recommended', 'airbnb-base'],
+  plugins: ['node', 'prettier'],
+  extends: ['eslint:recommended', 'plugin:node/recommended', 'airbnb-base', 'plugin:prettier/recommended'],
   rules: {
     'no-restricted-syntax': [
       noRestrictedSyntax[0],
