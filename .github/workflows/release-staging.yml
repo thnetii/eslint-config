@@ -1,0 +1,22 @@
+name: Release Staging
+on:
+  workflow_run:
+    types: [completed]
+    workflows:
+      - Code Validation
+  workflow_dispatch: {}
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: release-staging
+jobs:
+  print_conditions:
+    name: Show Workflow event
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          script: console.log(JSON.parse(process.env['GITHUB_CONTEXT_EVENT']))
+        env:
+          GITHUB_CONTEXT_EVENT: ${{ toJSON(github.event) }}
