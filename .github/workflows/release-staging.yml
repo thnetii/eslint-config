@@ -17,13 +17,25 @@ jobs:
     steps:
       - uses: actions/github-script@v6
         with:
-          script: console.log(JSON.parse(process.env['GITHUB_CONTEXT_EVENT']))
+          script: |
+            const github_context = JSON.parse(process.env['GITHUB_CONTEXT_FULL']);
+            console.log({
+              'github.event_name': github_context.event_name,
+              'github.event.workflow_run.conclusion': github_context.event?.workflow_run?.conclusion,
+              'github.ref': github_context.ref,
+            });
         env:
-          GITHUB_CONTEXT_EVENT: ${{ toJSON(github.event) }}
+          GITHUB_CONTEXT_FULL: ${{ toJSON(github) }}
 
   test_condition:
     name: Test Condition
-    if: github.event_name == 'workflow_dispatch'
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      (
+        github.event_name == 'workflow_run' &&
+        github.event.workflow_run.conclusion == 'success' &&
+        github.ref == 'refs/heads/main'
+      )
     runs-on: ubuntu-latest
     steps:
       - run: echo 'Condition true'
