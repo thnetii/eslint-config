@@ -15,7 +15,7 @@ jobs:
     name: Show Workflow event
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v6
+      - uses: actions/github-script@v6.4.1
         with:
           script: |
             const github_context = JSON.parse(process.env['GITHUB_CONTEXT_FULL']);
