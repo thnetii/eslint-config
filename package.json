@@ -34,7 +34,7 @@
     "prettier:check": "prettier --check ."
   },
   "devDependencies": {
-    "@tsconfig/node16": "^1.0.0",
+    "@tsconfig/node16": "^16.1.0",
     "@tsconfig/strictest": "^2.0.0",
     "eslint": "^7.32.0 || ^8.2.0",
     "eslint-config-prettier": "^8.5.0",
